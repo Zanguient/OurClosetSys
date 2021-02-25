@@ -33,5 +33,4 @@ O sistema possui um dashboard com filtros de data e produto, para que seja poss√
 
 ### Criador
 
-Jose Airton Moreira Filho
-(85) 9 9666-1555
+Jose Airton Moreira Filho - (85) 9 9666-1555
