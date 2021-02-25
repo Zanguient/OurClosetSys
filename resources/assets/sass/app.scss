@@ -1,0 +1,22 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+@import "~vuetify/dist/vuetify.min.css";
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+#app {
+    background-color: #f2f2f2;
+}
+
+.action-column {
+    width: 110px !important;
+}
+
+.pointer {
+    cursor: pointer;
+}

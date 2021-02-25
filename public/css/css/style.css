@@ -1,0 +1,42 @@
+body {
+  font-size: 0.95rem;
+  background-color: #f2f2f2;
+}
+
+.bg-grad { background: linear-gradient(90deg, #242a33, #354052) }
+.bg-dark-2 { background: #3a4049; }
+.bg-bread { background-color: #f2f2f2; }
+.border-color { border: 1px solid #777777; }
+.bd-radius { border-radius: 0.6rem; }
+
+.bg-cover{ background-repeat:no-repeat; background-position:center center; background-size:cover }
+
+.btn-light {
+    background: #d1d4d7;
+}
+ 
+.btn-light:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #babcbf;
+}
+
+.btn-novo {
+    background: #f2f2f2;
+}
+ 
+.btn-novo:hover, .btn-novo:focus, .btn-novo:active, .btn-novo.active, .open > .dropdown-toggle.btn-novo {
+    background: #e5e5e5;
+}
+
+.btn-tabela:hover, .btn-novo:focus, .btn-novo:active, .btn-novo.active, .open > .dropdown-toggle.btn-novo {
+    background: #dbdbdb;
+}
+
+h6 { font-size: 1.1rem; }
+/* 
+.bg-sec2 a { background-color: #eff2f7; }
+.bg-sec2 a:hover { background-color: #d7dde9; }
+
+eff2f7 > D7DDE9 
+*/
+
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
