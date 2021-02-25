@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'usuario' => 'Usuário'
+    'email' => 'E-mail',
+    'senha' => 'Senha',
 ];
 
 ?>

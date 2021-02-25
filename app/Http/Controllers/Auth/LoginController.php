@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Usuario;
 
 class LoginController extends Controller
 {
@@ -31,16 +31,6 @@ class LoginController extends Controller
     protected $redirectTo = '/home';
 
     /**
-     * Get the login username to be used by the controller.
-     *
-     * @return string
-     */
-    public function username()
-    {
-        return 'username';
-    }
-
-    /**
      * Create a new controller instance.
      *
      * @return void
@@ -53,5 +43,35 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return \Redirect('/');
+    }
+
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        if ($this->usuarioAtivo($request)) {
+            return "true";
+        } else {
+            $this->incrementLoginAttempts($request);
+        }
+
+        return $this->sendFailedLoginResponse($request);
+    }
+
+    public function usuarioAtivo(Request $request)
+    {
+        $usuario = Usuario::where("email", $request->email)->where('status', 'ATIVO')->first();
+        if ($usuario) {
+            \Auth::login($usuario);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

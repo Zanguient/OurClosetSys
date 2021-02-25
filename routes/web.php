@@ -12,16 +12,21 @@
 */
 
 Route::get('/', function () {
-    return \Redirect('/home');
+    if (\Auth::check()) {
+        return \Redirect('/home');
+    } else {
+        return \Redirect('/login');
+    }
 });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/profile', 'HomeController@getProfile')->name('profile');
-Route::post('/menu', 'HomeController@getMenu')->name('menu');
+Route::get('/login', 'HomeController@index')->name('login');
 
 Route::group(['middleware'=>'auth'], function(){
+        Route::post('/profile', 'HomeController@getProfile')->name('profile');
+        Route::post('/menu', 'HomeController@getMenu')->name('menu');
+        Route::get('/home', 'HomeController@index')->name('home');
 
         Route::get('/usuarios', 'HomeController@index')->name('usuarios');
         Route::get('/usuarios/create', 'HomeController@index')->name('usuarios.create');

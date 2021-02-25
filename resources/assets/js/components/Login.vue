@@ -6,33 +6,35 @@
       </v-btn>
     </template>
     <v-row dense style="height: 100%; width: 100%; background-color: #ccc">
-      <v-col md="4" sm="6">
+      <v-col md="7" sm="6">
         <v-card style="background-color: #CCC" class="elevation-0 mt-5">
           <v-card-text align="center">
-            <v-img src="/images/logo-black.svg" class="mb-3" width="70px"></v-img>
+            <v-img src="/images/logo.png" class="mb-3" width="150px"></v-img>
             <p color='#6c757d !important' font-size="40px">
-              #vamooo
+              Our Close SYS
             </p>
           </v-card-text>
         </v-card>
-        <v-card style="background-color: #ccc" class="elevation-0 mt-15">
+        <v-card style="background-color: #ccc; padding-left: 100px; padding-right: 100px" class="elevation-0 mt-15">
           <v-card-text>
             <v-form v-model="form" :lazy-validation="false">
               <v-text-field
-                label="Usuário"
-                name="username"
+                :label="trans('campo.email')"
+                name="email"
                 outlined
                 clearable
+                append-icon="email"
                 autocomplete="off"
                 :rules="[validacao.required]"
                 required
-                v-model="loginForm.username"
+                v-model="loginForm.email"
               />
               <v-text-field
                 id="password"
-                label="Senha"
+                :label="trans('campo.senha')"
                 outlined
                 clearable
+                append-icon="lock"
                 name="password"
                 type="password"
                 :rules="[validacao.required]"
@@ -64,7 +66,7 @@
       </v-col>
       <v-col
         sm="6"
-        md="8"
+        md="5"
         style="
           background-image: url('/images/wall.jpg');
           background-position: center;
