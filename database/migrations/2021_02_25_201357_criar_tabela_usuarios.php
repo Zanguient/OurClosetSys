@@ -17,7 +17,7 @@ class CriarTabelaUsuarios extends Migration
             $table->increments('id');
             $table->string('nome')->nullable();
             $table->string('email');
-            $table->string('status');
+            $table->string('status')->default('ATIVO');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

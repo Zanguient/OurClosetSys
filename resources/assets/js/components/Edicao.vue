@@ -13,15 +13,23 @@
         <slot name="formulario"></slot>
       </v-col>
       <v-col cols="12" class="text-right">
-        <v-btn small color="red" dark @click="limpar()"><i class="far fa-eraser mr-2"></i>Limpar</v-btn>
-        <v-btn small dark @click="cancelar()"><i class="far fa-undo mr-2"></i>Cancelar</v-btn>
-        <v-btn small color="primary" @click="dialog_salvar = true"><i class="far fa-check mr-2"></i>Salvar</v-btn>
+        <v-btn small color="red" dark @click="limpar()"
+          ><v-icon left>clear</v-icon> Limpar</v-btn
+        >
+        <v-btn small dark @click="cancelar()">
+          <v-icon left>reply</v-icon> Cancelar</v-btn
+        >
+        <v-btn small color="primary" @click="dialog_salvar = true"
+          ><v-icon left>save</v-icon> Salvar</v-btn
+        >
       </v-col>
     </v-row>
 
     <v-dialog v-model="dialog_salvar" width="500">
       <v-card>
-        <v-card-title>{{ trans("mensagem.salvar_novo_registro") }}</v-card-title>
+        <v-card-title>{{
+          trans("mensagem.editar_o_registro")
+        }}</v-card-title>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="red" dark text @click="dialog_salvar = false">
@@ -34,7 +42,7 @@
             text
             @click="
               dialog_salvar = false;
-              removeItem();
+              salvar();
             "
           >
             <v-icon left>check</v-icon>
@@ -78,33 +86,40 @@ export default {
       type: Array,
       default: null,
     },
+    finalizado: {
+      default: null,
+    },
   },
   methods: {
     limpar: function () {
-      window.location = '/' + this.entidade + '/create';
+      window.location = this.$route.path;
     },
     cancelar: function () {
       window.location = "/" + this.entidade;
     },
     salvar: function () {
-      let ctr = this;
       this.overlay = true;
-      axios.delete("/" + this.entidade + "/" + this.itemParaRemover.id).then(
-        function (response) {
-          ctr.snackbar = true;
-          ctr.resultados.splice(
-            ctr.resultados.indexOf(this.itemParaRemover),
-            1
-          );
-          ctr.overlay = false;
-        },
-        function (error) {
-          ctr.erro = error.response.statusText;
-          ctr.snackbarError = true;
-          ctr.overlay = false;
-        }
-      );
+      this.$parent.salvar();
     },
-  }
+  },
+  watch: {
+    finalizado: function (val, oldVal) {
+      if (val != oldVal && this.finalizado !== null) {
+        if (val === true) {
+          this.snackbar = true;
+        } else {
+          this.overlay = false;
+          this.snackbarError = true;
+          this.erro = val;
+        }
+        this.$parent.salvoComSucesso = null;
+      }
+    },
+    snackbar: function (val, oldVal) {
+      if (val !== oldVal && oldVal == true) {
+        this.limpar();
+      }
+    },
+  },
 };
 </script>

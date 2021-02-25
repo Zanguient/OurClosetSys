@@ -31,10 +31,10 @@ Route::group(['middleware'=>'auth'], function(){
         Route::get('/usuarios', 'HomeController@index')->name('usuarios');
         Route::get('/usuarios/create', 'HomeController@index')->name('usuarios.create');
         Route::get('/usuarios/{id}/edit', 'HomeController@index')->name('usuarios.edit');
-        Route::post('/usuarios/pesquisar', ['as' => 'usuarios.pesquisar', 'uses' => 'UserController@pesquisar']);
-        Route::post('/usuarios', ['as' => 'usuarios.store', 'uses' => 'UserController@store']);
-        Route::put('/usuarios/{id}/edit', ['as' => 'usuarios.update', 'uses' => 'UserController@update']);
-        Route::delete('/usuarios/{id}', ['as' => 'usuarios.destroy', 'uses' => 'UserController@destroy']);
+        Route::post('/usuarios/pesquisar', ['as' => 'usuarios.pesquisar', 'uses' => 'UsuarioController@pesquisar']);
+        Route::post('/usuarios', ['as' => 'usuarios.store', 'uses' => 'UsuarioController@store']);
+        Route::put('/usuarios/edit', ['as' => 'usuarios.update', 'uses' => 'UsuarioController@update']);
+        Route::delete('/usuarios/{id}', ['as' => 'usuarios.destroy', 'uses' => 'UsuarioController@destroy']);
 
 });
 

@@ -1,7 +1,7 @@
 <template>
   <v-tabs height="55px">
     <v-tab href="/movimentacoes">
-      <v-icon left>compare_arrows</v-icon>
+      <v-icon left>sync_alt</v-icon>
       Movimentações
     </v-tab>
     <v-tab href="/estoque">

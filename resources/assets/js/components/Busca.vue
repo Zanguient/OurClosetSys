@@ -34,16 +34,21 @@
               <v-icon left>add</v-icon>
               Novo
             </v-btn>
-            <v-btn small dark fab>
-              <i class="far fa-file-export left"></i>
-            </v-btn>
           </v-card-title>
           <v-expand-transition>
             <div v-show="showFilter && exibirFiltro">
               <v-card-text class="mb-0 pt-3" style="background-color: #efefef">
                 <slot name="filtro"></slot>
-                <v-btn small dark color="red" @click="limpar()">
-                  <i class="far fa-eraser mr-2"></i>
+                <v-btn
+                  small
+                  dark
+                  color="red"
+                  @click="
+                    limpar();
+                    showFilter = false;
+                  "
+                >
+                  <v-icon left>clear</v-icon>
                   Limpar
                 </v-btn>
                 <v-btn
@@ -56,7 +61,7 @@
                     showFilter = false;
                   "
                 >
-                  <i class="far fa-search mr-2"></i>
+                  <v-icon left>search</v-icon>
                   Buscar
                 </v-btn>
               </v-card-text>
@@ -88,8 +93,8 @@
                 </tr>
               </template>
               <template v-slot:item.acoes="{ item }">
-                <i class="far fa-pencil mr-2 pointer" @click="editar(item)"></i>
-                <i class="far fa-trash pointer" @click="remover(item)"></i>
+                <v-icon @click="editar(item)">edit</v-icon>
+                <v-icon @click="remover(item)">clear</v-icon>
               </template>
             </v-data-table>
           </v-card-text>
@@ -146,7 +151,7 @@
       </v-btn>
     </v-snackbar>
     <v-snackbar color="error" right top :timeout="3000" v-model="snackbarError">
-      {{erro}}
+      {{ erro }}
       <v-btn dark text @click="snackbarError = false">
         <v-icon>clear</v-icon>
       </v-btn>
@@ -167,7 +172,7 @@ export default {
       dialog_remover: false,
       snackbar: false,
       snackbarError: false,
-      erro: null
+      erro: null,
     };
   },
   props: {
@@ -235,7 +240,7 @@ export default {
       axios.delete("/" + this.entidade + "/" + this.itemParaRemover.id).then(
         function (response) {
           ctr.snackbar = true;
-          ctr.resultados.splice(ctr.resultados.indexOf(this.itemParaRemover), 1);
+          ctr.resultados.splice(ctr.resultados.indexOf(ctr.itemParaRemover), 1);
           ctr.overlay = false;
         },
         function (error) {

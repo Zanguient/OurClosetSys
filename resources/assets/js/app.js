@@ -33,9 +33,9 @@ Vue.component('edicao', require('./components/Edicao.vue'));
 
 import App from './components/App.vue';
 
-import User from './views/users/Search.vue';
-import UserCreate from './views/users/Create.vue';
-import UserEdit from './views/users/Edit.vue';
+import Usuario from './views/usuarios/Search.vue';
+import UsuarioCreate from './views/usuarios/Create.vue';
+import UsuarioEdit from './views/usuarios/Edit.vue';
 
 import Home from './views/Home.vue';
 import Login from './views/Login';
@@ -54,21 +54,21 @@ const router = new VueRouter({
             component: Home,
         },
         {
-            path: '/users',
-            name: 'users',
-            component: User,
+            path: '/usuarios',
+            name: 'Buscar Usuários',
+            component: Usuario,
         },
         {
-            path: '/users/create',
-            name: 'users.create',
-            component: UserCreate,
+            path: '/usuarios/create',
+            name: 'Cadastrar Usuário',
+            component: UsuarioCreate
         },
         {
-            path: '/users/:id/edit',
-            name: 'users.edit',
-            component: UserEdit,
+            path: '/usuarios/:id/edit',
+            name: 'Editar Usuário',
+            component: UsuarioEdit,
         }
-        
+
     ],
 });
 
@@ -82,6 +82,6 @@ let vuetify = new Vuetify(opts);
 const app = new Vue({
     el: '#app',
     vuetify,
-    components: {App},
+    components: { App },
     router
 });

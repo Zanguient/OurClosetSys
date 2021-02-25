@@ -58,12 +58,6 @@ export default {
   components: {
     "avatar-perfil": AvatarPerfil,
     "menus": Menu
-  },
-  mounted () {
-    let ctr = this;
-    setTimeout(function () {
-      // window.location = ctr.$route.path;
-    }, 2000)
   }
 };
 </script>
