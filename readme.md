@@ -27,6 +27,7 @@ O sistema possui um dashboard com filtros de data e produto, para que seja possÃ
 
 ### Tencologias Utilizadas
 
+- PHP (v >=7.0.0)
 - Laravel Framework (v 5.5.*)
 - vueJs (v ^2.5.7)
 - vuetifyJs (v ^2.2.23)
