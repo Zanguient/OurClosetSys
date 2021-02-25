@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Store;
-use App\Models\User;
+use App\Models\Usuario;
 
 class HomeController extends Controller
 {
@@ -16,16 +15,6 @@ class HomeController extends Controller
     public function index()
     {
         return view('home')->withLogged(\Auth::check()?'true':'false');
-    }
-
-    public function selecionarLoja(Request $request)
-    {
-        $user = User::find(\Auth::user()->id);
-        $user->current_store_id = $request->store_id;
-        $user->last_remember_token = $user->remember_token;
-        $user->update();
-
-        return 'true';
     }
 
     public function getMenu(Request $request)
@@ -63,7 +52,7 @@ class HomeController extends Controller
 
     public function getProfile(Request $request)
     {
-        $user = User::with('currentStore')->find(\Auth::user()->id);
+        $user = Usuario::find(\Auth::user()->id);
         return $user;
     }
 }

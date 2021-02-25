@@ -1,6 +1,6 @@
 <template>
   <v-btn icon @click="logout">
-    <i class="far fa-sign-out align-self-center text-white fa-lg mx-2"></i>
+    <v-icon>logout</v-icon>
   </v-btn>
 </template>
 

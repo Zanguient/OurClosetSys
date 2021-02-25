@@ -11,7 +11,7 @@
           <v-card-text align="center">
             <v-img src="/images/logo.png" class="mb-3" width="150px"></v-img>
             <p color='#6c757d !important' font-size="40px">
-              Our Close SYS
+              Our Closet SYS
             </p>
           </v-card-text>
         </v-card>

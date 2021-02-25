@@ -2,11 +2,8 @@
   <div>
     <v-row>
       <v-col cols="auto" align="center" v-show="perfil">
-        <span v-if="perfil.current_store">
-          <i class="far fa-store-alt fa-fw mr-1 text-white-50"></i> {{perfil.current_store.name}}
-        </span>
-        <span class="ml-3">
-          <i class="far fa-user fa-fw mr-1 text-white-50"></i> {{perfil.username}}
+        <span>
+          <v-icon left>person</v-icon>{{perfil.nome}}
         </span>
         <logout></logout>
       </v-col>

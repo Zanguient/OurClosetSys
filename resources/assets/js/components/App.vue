@@ -10,21 +10,13 @@
       dark
     >
       <v-app-bar-nav-icon href="/home">
-        <v-img width="25px" src="/images/logo-white.svg"></v-img>
+        <v-img width="35px" src="/images/logo-white.png"></v-img>
       </v-app-bar-nav-icon>
       <v-row class="ml-3" dense>
-        <v-col cols="4">
+        <v-col cols="12">
           <h4>
             {{ $route.name }}
           </h4>
-        </v-col>
-        <v-col cols="8" class="busca-geral">
-          <v-text-field
-            label="buscar"
-            outlined
-            clearable
-            dense
-          ></v-text-field>
         </v-col>
       </v-row>
       <avatar-perfil class="ml-5"></avatar-perfil>
