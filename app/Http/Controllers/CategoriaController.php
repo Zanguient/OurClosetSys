@@ -22,7 +22,7 @@ class CategoriaController extends Controller
             $busca->where('criador_id', $request->criador_id);
         }
 
-        return $busca->get();
+        return $busca->orderBy('nome')->get();
     }
 
     /**

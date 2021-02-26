@@ -25,7 +25,7 @@ class UsuarioController extends Controller
             $busca->where('status', $request->status);
         }
 
-        return $busca->get();
+        return $busca->orderBy('nome')->get();
     }
 
     /**
