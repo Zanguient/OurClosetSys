@@ -41,6 +41,10 @@ import Categoria from './views/categorias/Search.vue';
 import CategoriaCreate from './views/categorias/Create.vue';
 import CategoriaEdit from './views/categorias/Edit.vue';
 
+import Peca from './views/pecas/Search.vue';
+import PecaCreate from './views/pecas/Create.vue';
+import PecaEdit from './views/pecas/Edit.vue';
+
 import Home from './views/Home.vue';
 import Login from './views/Login';
 
@@ -86,6 +90,21 @@ const router = new VueRouter({
             path: '/categorias/:id/edit',
             name: 'Editar Categoria',
             component: CategoriaEdit,
+        },
+        {
+            path: '/pecas',
+            name: 'Buscar Peças',
+            component: Peca,
+        },
+        {
+            path: '/pecas/create',
+            name: 'Cadastrar Peça',
+            component: PecaCreate
+        },
+        {
+            path: '/pecas/:id/edit',
+            name: 'Editar Peça',
+            component: PecaEdit,
         }
 
     ],

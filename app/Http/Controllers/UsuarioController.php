@@ -16,10 +16,10 @@ class UsuarioController extends Controller
             $busca->where('id', $request->id);
         }
         if ($request->nome) {
-            $busca->whereRaw("nome like '%".$request->nome."%'");
+            $busca->whereRaw("upper(nome) like '%".strtoupper($request->nome)."%'");
         }
         if ($request->email) {
-            $busca->whereRaw("email like '%".$request->email."%'");
+            $busca->whereRaw("upper(email) like '%".strtoupper($request->email)."%'");
         }
         if ($request->status) {
             $busca->where('status', $request->status);
@@ -47,7 +47,7 @@ class UsuarioController extends Controller
             return $modelo->id;
         } catch (\Exception $e) {
             \DB::rollback();
-            abort($e);
+            abort(500, $e);
         }
     }
 
@@ -71,7 +71,7 @@ class UsuarioController extends Controller
             return $modelo->id;
         } catch (\Exception $e) {
             \DB::rollback();
-            abort($e);
+            abort(500, $e);
         }
 
     }
@@ -87,7 +87,7 @@ class UsuarioController extends Controller
         try {
             Usuario::destroy($id);
         } catch (\Exception $e) {
-            abort($e);
+            abort(500, $e);
         }
     }
 }

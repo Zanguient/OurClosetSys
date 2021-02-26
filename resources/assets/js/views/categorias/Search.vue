@@ -1,7 +1,7 @@
 <template>
   <busca
     entidade="categorias"
-    :breadcrumb="[{ text: $route.name, href: '/categorias' }]"
+    :breadcrumb="[{ text: $route.name, href: $route.path }]"
     :cabecalho="headers"
     :resultados="resultados"
   >
@@ -36,7 +36,7 @@ export default {
         { text: "ID", value: "id" },
         { text: this.trans("campo.nome"), value: "nome" },
         { text: this.trans("campo.criado_por"), value: "criador.nome" },
-        { text: this.trans("campo.data_criacao"), value: "created_at", formato: 'DD/MM/YYYY' },
+        { text: this.trans("campo.data_criacao"), value: "created_at" },
         {
           text: this.trans("campo.acoes"),
           value: "acoes",

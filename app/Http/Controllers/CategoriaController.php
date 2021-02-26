@@ -16,7 +16,7 @@ class CategoriaController extends Controller
             $busca->where('id', $request->id);
         }
         if ($request->nome) {
-            $busca->whereRaw("nome like '%".$request->nome."%'");
+            $busca->whereRaw("upper(nome) like '%".strtoupper($request->nome)."%'");
         }
         if ($request->criador_id) {
             $busca->where('criador_id', $request->criador_id);
@@ -44,7 +44,7 @@ class CategoriaController extends Controller
             return $modelo->id;
         } catch (\Exception $e) {
             \DB::rollback();
-            abort($e);
+            abort(500, $e);
         }
     }
 
@@ -68,7 +68,7 @@ class CategoriaController extends Controller
             return $modelo->id;
         } catch (\Exception $e) {
             \DB::rollback();
-            abort($e);
+            abort(500, $e);
         }
 
     }
@@ -84,7 +84,7 @@ class CategoriaController extends Controller
         try {
             Categoria::destroy($id);
         } catch (\Exception $e) {
-            abort($e);
+            abort(500, $e);
         }
     }
 }

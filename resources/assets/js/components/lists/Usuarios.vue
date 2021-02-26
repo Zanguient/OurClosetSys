@@ -4,11 +4,11 @@
     @change="$emit('input', $event)"
     append-icon="keyboard_arrow_down"
     :items="items"
+    item-value="id"
     item-text="nome"
     :label="label"
     dense
     outlined
-    return-object
     :clearable="limpar"
     clear-icon="clear"
   ></v-autocomplete>

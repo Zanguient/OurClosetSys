@@ -1,7 +1,7 @@
 <template>
   <busca
     entidade="usuarios"
-    :breadcrumb="[{ text: $route.name, href: '/usuarios' }]"
+    :breadcrumb="[{ text: $route.name, href: $route.path }]"
     :cabecalho="headers"
     :resultados="resultados"
   >
