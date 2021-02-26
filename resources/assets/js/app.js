@@ -37,6 +37,10 @@ import Usuario from './views/usuarios/Search.vue';
 import UsuarioCreate from './views/usuarios/Create.vue';
 import UsuarioEdit from './views/usuarios/Edit.vue';
 
+import Categoria from './views/categorias/Search.vue';
+import CategoriaCreate from './views/categorias/Create.vue';
+import CategoriaEdit from './views/categorias/Edit.vue';
+
 import Home from './views/Home.vue';
 import Login from './views/Login';
 
@@ -67,6 +71,21 @@ const router = new VueRouter({
             path: '/usuarios/:id/edit',
             name: 'Editar Usuário',
             component: UsuarioEdit,
+        },
+        {
+            path: '/categorias',
+            name: 'Buscar Categorias',
+            component: Categoria,
+        },
+        {
+            path: '/categorias/create',
+            name: 'Cadastrar Categoria',
+            component: CategoriaCreate
+        },
+        {
+            path: '/categorias/:id/edit',
+            name: 'Editar Categoria',
+            component: CategoriaEdit,
         }
 
     ],

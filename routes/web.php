@@ -36,6 +36,14 @@ Route::group(['middleware'=>'auth'], function(){
         Route::put('/usuarios/edit', ['as' => 'usuarios.update', 'uses' => 'UsuarioController@update']);
         Route::delete('/usuarios/{id}', ['as' => 'usuarios.destroy', 'uses' => 'UsuarioController@destroy']);
 
+        Route::get('/categorias', 'HomeController@index')->name('categorias');
+        Route::get('/categorias/create', 'HomeController@index')->name('categorias.create');
+        Route::get('/categorias/{id}/edit', 'HomeController@index')->name('categorias.edit');
+        Route::post('/categorias/pesquisar', ['as' => 'categorias.pesquisar', 'uses' => 'CategoriaController@pesquisar']);
+        Route::post('/categorias', ['as' => 'categorias.store', 'uses' => 'CategoriaController@store']);
+        Route::put('/categorias/edit', ['as' => 'categorias.update', 'uses' => 'CategoriaController@update']);
+        Route::delete('/categorias/{id}', ['as' => 'categorias.destroy', 'uses' => 'CategoriaController@destroy']);
+
 });
 
 // Arquivos de tradução

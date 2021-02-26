@@ -19,7 +19,7 @@ class UsuarioController extends Controller
             $busca->whereRaw("nome like '%".$request->nome."%'");
         }
         if ($request->email) {
-            $busca->whereRaw("nome like '%".$request->email."%'");
+            $busca->whereRaw("email like '%".$request->email."%'");
         }
         if ($request->status) {
             $busca->where('status', $request->status);

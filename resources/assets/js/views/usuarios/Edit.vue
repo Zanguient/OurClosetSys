@@ -9,7 +9,7 @@
   >
     <template slot="formulario">
       <v-row dense>
-        <v-card>
+        <v-card width="100%">
           <v-card-text>
             <v-row dense>
               <v-col cols="12" md="5">

@@ -5,7 +5,7 @@
     append-icon="keyboard_arrow_down"
     :items="items"
     item-text="nome"
-    :label="trans('campo.usuario')"
+    :label="label"
     dense
     outlined
     return-object
@@ -25,11 +25,15 @@ export default {
     limpar: {
       default: true,
       type: Boolean
+    },
+    label: {
+      default: 'Nome',
+      type: String
     }
   },
   mounted() {
     let ctr = this;
-    axios.post("/users/buscar", {}).then(function(response) {
+    axios.post("/usuarios/pesquisar", {}).then(function(response) {
       ctr.items = response.data;
     });
   }

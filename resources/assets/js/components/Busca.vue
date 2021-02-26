@@ -92,6 +92,9 @@
                   </th>
                 </tr>
               </template>
+              <template v-slot:item.created_at="{ item }">
+                {{ moment(item.created_at).format('DD/MM/YYYY hh:mm:ss') }}
+              </template>
               <template v-slot:item.acoes="{ item }">
                 <v-icon @click="editar(item)">edit</v-icon>
                 <v-icon @click="remover(item)">clear</v-icon>
@@ -160,9 +163,11 @@
 </template>
 
 <script>
+import Moment from 'moment';
 export default {
   data() {
     return {
+      moment: Moment,
       overlay: false,
       showFilter: false,
       showDetails: false,

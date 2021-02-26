@@ -6,7 +6,9 @@ return [
     'senha' => 'Senha',
     'status' => 'Status',
     'senha' => 'Senha',
-    'acoes' => 'Ações'
+    'acoes' => 'Ações',
+    'criado_por' => 'Criado Por',
+    'data_criacao' => 'Data Criação'
 ];
 
 ?>
