@@ -30,7 +30,4 @@ class Peca extends Model
     {
         return $this->belongsTo('App\Models\Categoria', 'categoria_id', 'id');
     }
-
-    // custo
-    // valor_venda
 }

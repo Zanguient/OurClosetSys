@@ -45,6 +45,9 @@ import Peca from './views/pecas/Search.vue';
 import PecaCreate from './views/pecas/Create.vue';
 import PecaEdit from './views/pecas/Edit.vue';
 
+import Movimentacao from './views/movimentacoes/Search.vue';
+import MovimentacaoCreate from './views/movimentacoes/Create.vue';
+
 import Home from './views/Home.vue';
 import Login from './views/Login';
 
@@ -105,8 +108,17 @@ const router = new VueRouter({
             path: '/pecas/:id/edit',
             name: 'Editar Peça',
             component: PecaEdit,
+        },
+        {
+            path: '/movimentacoes',
+            name: 'Buscar Movimentações',
+            component: Movimentacao,
+        },
+        {
+            path: '/movimentacoes/create',
+            name: 'Cadastrar Movimentação',
+            component: MovimentacaoCreate
         }
-
     ],
 });
 

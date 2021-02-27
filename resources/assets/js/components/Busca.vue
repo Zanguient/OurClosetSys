@@ -92,35 +92,21 @@
                   </th>
                 </tr>
               </template>
+              <template v-slot:item.peca="{ item }">
+                {{item.peca.nome}} ({{item.peca.cor}})
+              </template>
               <template v-slot:item.created_at="{ item }">
-                {{ moment(item.created_at).format('DD/MM/YYYY hh:mm:ss') }}
+                {{ moment(item.created_at).format('DD/MM/YYYY HH:mm:ss') }}
               </template>
               <template v-slot:item.acoes="{ item }">
                 <v-icon @click="editar(item)">edit</v-icon>
-                <v-icon @click="remover(item)">clear</v-icon>
+                <v-icon v-show="exibirExcluir" @click="remover(item)">clear</v-icon>
               </template>
             </v-data-table>
           </v-card-text>
         </v-card>
       </v-col>
     </v-row>
-    <v-dialog v-model="showDetails" scrollable>
-      <v-card class="elevation-12">
-        <v-toolbar color="primary" dark flat>
-          <v-toolbar-title>{{ trans("titulo.detalhes") }}</v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-btn icon @click="showDetails = !showDetails">
-            <v-icon>clear</v-icon>
-          </v-btn>
-        </v-toolbar>
-        <v-card-text>
-          <slot name="detalhes"></slot>
-        </v-card-text>
-        <v-card-actions>
-          <slot name="acoes_detalhes"></slot>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
     <slot name="alertas"></slot>
 
     <v-dialog v-model="dialog_remover" width="500">
@@ -170,7 +156,6 @@ export default {
       moment: Moment,
       overlay: false,
       showFilter: false,
-      showDetails: false,
       headers: [],
       options: {},
       itemParaRemover: {},
@@ -201,9 +186,9 @@ export default {
       type: Boolean,
       default: true,
     },
-    exibirDetalhes: {
+    exibirExcluir: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     itensPerPage: {
       type: Number,
@@ -219,10 +204,6 @@ export default {
     this.headers = this.cabecalho;
   },
   methods: {
-    showItem: function (item) {
-      this.$parent.showItem(item);
-      this.showDetails = true;
-    },
     buscar: function () {
       this.$parent.buscar();
     },
@@ -255,13 +236,6 @@ export default {
         }
       );
     },
-  },
-  watch: {
-    exibirDetalhes: function (value) {
-      if (value) {
-        this.showDetails = !value;
-      }
-    },
-  },
+  }
 };
 </script>

@@ -52,6 +52,11 @@ Route::group(['middleware'=>'auth'], function(){
         Route::put('/pecas/edit', ['as' => 'pecas.update', 'uses' => 'PecaController@update']);
         Route::delete('/pecas/{id}', ['as' => 'pecas.destroy', 'uses' => 'PecaController@destroy']);
 
+        Route::get('/movimentacoes', 'HomeController@index')->name('movimentacoes');
+        Route::get('/movimentacoes/create', 'HomeController@index')->name('movimentacoes.create');
+        Route::post('/movimentacoes/pesquisar', ['as' => 'movimentacoes.pesquisar', 'uses' => 'MovimentacaoEstoqueController@pesquisar']);
+        Route::post('/movimentacoes', ['as' => 'movimentacoes.store', 'uses' => 'MovimentacaoEstoqueController@store']);
+
 });
 
 // Arquivos de tradução
