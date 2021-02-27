@@ -7,6 +7,8 @@ return [
     'status' => 'Status',
     'senha' => 'Senha',
     'cor' => 'Cor',
+    'valor_unidade' => 'Valor da Unidade',
+    'valor_total' => 'Valor Total',
     'categoria' => 'Categoria',
     'valor_venda' => 'Valor de Venda',
     'custo' => 'Custo',

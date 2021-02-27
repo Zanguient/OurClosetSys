@@ -31,4 +31,9 @@ class Peca extends Model
     {
         return $this->belongsTo('App\Models\Categoria', 'categoria_id', 'id');
     }
+
+    public function estoque()
+    {
+        return $this->belongsTo('App\Models\Estoque', 'id', 'peca_id');
+    }
 }
