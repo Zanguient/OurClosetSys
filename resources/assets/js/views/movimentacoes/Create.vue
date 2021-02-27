@@ -20,22 +20,12 @@
               <v-col cols="12" md="6">
                 <lista-pecas v-model="model.peca_id"></lista-pecas>
               </v-col>
-              <v-col cols="12" md="3">
+              <v-col cols="12" md="2">
                 <v-text-field
                   v-model="model.quantidade"
                   autocomplete="off"
                   clearable
                   :label="trans('campo.quantidade')"
-                  outlined
-                  dense
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="3">
-                <v-text-field
-                  v-model="model.tamanho"
-                  autocomplete="off"
-                  clearable
-                  :label="trans('campo.tamanho')"
                   outlined
                   dense
                 ></v-text-field>

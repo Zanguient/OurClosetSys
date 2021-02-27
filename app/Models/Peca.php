@@ -23,7 +23,8 @@ class Peca extends Model
         'categoria_id',
         'custo',
         'valor_venda',
-        'cor'
+        'cor',
+        'tamanho'
     ];
 
     public function categoria()

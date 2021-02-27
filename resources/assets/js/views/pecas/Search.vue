@@ -30,6 +30,16 @@
             dense
           ></v-text-field>
         </v-col>
+        <v-col cols="12" md="3">
+          <v-text-field
+            v-model="busca.tamanho"
+            autocomplete="off"
+            clearable
+            :label="trans('campo.tamanho')"
+            outlined
+            dense
+          ></v-text-field>
+        </v-col>
       </v-row>
     </template>
   </busca>
@@ -45,6 +55,7 @@ export default {
       headers: [
         { text: this.trans("campo.nome"), value: "nome" },
         { text: this.trans("campo.cor"), value: "cor" },
+        { text: this.trans("campo.tamanho"), value: "tamanho" },
         { text: this.trans("campo.categoria"), value: "categoria.nome" },
         { text: this.trans("campo.custo"), value: "custo" },
         { text: this.trans("campo.valor_venda"), value: "valor_venda" },

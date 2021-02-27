@@ -22,8 +22,7 @@ class MovimentacaoEstoque extends Model
         'tipo',
         'responsavel_id',
         'peca_id',
-        'quantidade',
-        'tamanho'
+        'quantidade'
     ];
 
     public function responsavel()

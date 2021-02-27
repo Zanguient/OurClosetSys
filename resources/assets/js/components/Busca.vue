@@ -93,7 +93,7 @@
                 </tr>
               </template>
               <template v-slot:item.peca="{ item }">
-                {{item.peca.nome}} ({{item.peca.cor}})
+                {{item.peca.nome}} ({{item.peca.cor}}) [{{item.peca.tamanho}}]
               </template>
               <template v-slot:item.created_at="{ item }">
                 {{ moment(item.created_at).format('DD/MM/YYYY HH:mm:ss') }}

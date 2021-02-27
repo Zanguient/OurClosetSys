@@ -36,7 +36,7 @@ export default {
     axios.post("/pecas/pesquisar", {}).then(function(response) {
       ctr.items = response.data;
       ctr.items.map(function (e) {
-        e.desc = e.nome+' ('+e.cor.toLowerCase()+')';
+        e.desc = e.nome+' ('+e.cor.toLowerCase()+')'+' ['+e.tamanho.toUpperCase()+']';
       })
     });
   }

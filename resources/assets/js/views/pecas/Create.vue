@@ -32,6 +32,16 @@
                   dense
                 ></v-text-field>
               </v-col>
+              <v-col cols="12" md="3">
+                <v-text-field
+                  v-model="model.tamanho"
+                  autocomplete="off"
+                  clearable
+                  :label="trans('campo.tamanho')"
+                  outlined
+                  dense
+                ></v-text-field>
+              </v-col>
               <v-col cols="12" md="4">
                 <lista-categorias
                   v-model="model.categoria_id"
