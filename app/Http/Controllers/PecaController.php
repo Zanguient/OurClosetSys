@@ -24,6 +24,9 @@ class PecaController extends Controller
         if ($request->categoria_id) {
             $busca->where('categoria_id', $request->categoria_id);
         }
+        if ($request->tamanho) {
+            $busca->whereRaw("upper(tamanho) = '".strtoupper($request->tamanho)."'");
+        }
 
         return $busca->orderBy('nome')->get();
     }

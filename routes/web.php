@@ -57,6 +57,9 @@ Route::group(['middleware'=>'auth'], function(){
         Route::post('/movimentacoes/pesquisar', ['as' => 'movimentacoes.pesquisar', 'uses' => 'MovimentacaoEstoqueController@pesquisar']);
         Route::post('/movimentacoes', ['as' => 'movimentacoes.store', 'uses' => 'MovimentacaoEstoqueController@store']);
 
+        Route::get('/estoques', 'HomeController@index')->name('estoques');
+        Route::post('/estoques/pesquisar', ['as' => 'estoques.pesquisar', 'uses' => 'EstoqueController@pesquisar']);
+
 });
 
 // Arquivos de tradução

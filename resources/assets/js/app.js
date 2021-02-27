@@ -48,6 +48,8 @@ import PecaEdit from './views/pecas/Edit.vue';
 import Movimentacao from './views/movimentacoes/Search.vue';
 import MovimentacaoCreate from './views/movimentacoes/Create.vue';
 
+import Estoque from './views/estoques/Search.vue';
+
 import Home from './views/Home.vue';
 import Login from './views/Login';
 
@@ -118,7 +120,12 @@ const router = new VueRouter({
             path: '/movimentacoes/create',
             name: 'Cadastrar Movimentação',
             component: MovimentacaoCreate
-        }
+        },
+        {
+            path: '/estoques',
+            name: 'Buscar Estoques',
+            component: Estoque,
+        },
     ],
 });
 
