@@ -4,7 +4,7 @@
       <v-icon left>sync_alt</v-icon>
       Movimentações
     </v-tab>
-    <v-tab href="/estoque">
+    <v-tab href="/estoques">
       <v-icon left>shopping_basket</v-icon>
       Estoque
     </v-tab>
@@ -12,10 +12,10 @@
       <v-icon left>sell</v-icon>
       Peças
     </v-tab>
-    <v-tab href="/financeiro">
+    <!-- <v-tab href="/financeiro">
       <v-icon left>savings</v-icon>
       Financeiro
-    </v-tab>
+    </v-tab> -->
     <v-tab href="/categorias">
       <v-icon left>style</v-icon>
       Categorias
